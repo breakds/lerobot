@@ -2,6 +2,7 @@
 , pythonOlder
 , buildPythonPackage
 , fetchFromGitHub
+, poetry-core
 , mujoco
 , gymnasium
 , dm-control
@@ -21,6 +22,8 @@ buildPythonPackage rec {
     rev = "7f19312f453f45fbe8ca8883d6250626dfa36373";
     hash = "sha256-+c+AJeADtEUaC62IDFh/aNERhWf5PcXqQ9797WXhQkA=";
   };
+
+  nativeBuildInputs = [ poetry-core ];
 
   propagatedBuildInputs = [
     mujoco

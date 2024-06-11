@@ -37,6 +37,11 @@
           overlays = [ self.overlays.dev ];
         };
     in {
+      packages = {
+        gym-aloha = pkgs.python3Packages.gym-aloha;
+        aio-pika = pkgs.python3Packages.aio-pika;
+      };
+      
       devShells.default = let
         python-env = pkgs.python3.withPackages (pyPkgs: with pyPkgs; [
           numpy
@@ -64,7 +69,7 @@
           # Huggingface
           huggingface-hub
           datasets
-          gym-aloha
+          safetensors
         ]);
 
         name = "lerobot";
