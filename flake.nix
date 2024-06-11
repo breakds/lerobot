@@ -79,6 +79,7 @@
         packages = [
           python-env
           pkgs.cmake
+          # pkgs.rerun
         ];
 
         shellHooks = let pythonIcon = "f3e2"; in ''
