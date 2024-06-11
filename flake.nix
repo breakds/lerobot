@@ -59,9 +59,14 @@
           gdown
           hydra-core
           h5py
+          av
+          moviepy
+          rerun-sdk
+          debugpy
 
           # Huggingface
           huggingface-hub
+          datasets
         ]);
 
         name = "lerobot";
