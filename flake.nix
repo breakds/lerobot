@@ -15,16 +15,13 @@
     overlays.dev = nixpkgs.lib.composeManyExtensions [
       inputs.ml-pkgs.overlays.torch-family
 
-      # You can put your other overlays here, inline or with import. For example
-      # if you want to put an inline overlay, uncomment below:
-      #
-      # (final: prev: {
-      #   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
-      #     (python-final: python-prev: {
-      #       my-package = ...;
-      #     })
-      #   ];
-      # })
+      (final: prev: {
+        pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+          (py-final: py-prev: {
+            gym-aloha = py-final.callPackage ./nix/pkgs/gym-aloha {};
+          })
+        ];
+      })
     ];
   } // inputs.utils.lib.eachSystem [
     "x86_64-linux"
@@ -67,6 +64,7 @@
           # Huggingface
           huggingface-hub
           datasets
+          gym-aloha
         ]);
 
         name = "lerobot";
